@@ -2,6 +2,7 @@
   "name": "generate-file-link-tree",
   "displayName": "generate-file-link-tree",
   "description": "一键生成带有链接的markdown文档目录树",
+  "icon": "./cover.webp",
   "publisher": "puppetmaster",
   "version": "0.0.1",
   "engines": {
