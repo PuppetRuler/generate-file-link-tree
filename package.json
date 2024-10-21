@@ -4,7 +4,7 @@
   "description": "一键生成带有链接的markdown文档目录树",
   "icon": "./cover.webp",
   "publisher": "puppetmaster",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.80.0"
   },
