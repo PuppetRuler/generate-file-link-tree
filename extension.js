@@ -33,7 +33,7 @@ function activate(context) {
       }
 
       // 递归生成文件树
-      function generateFileTree(dirPath, baseUrl = '') {
+      function generateFileTree(dirPath, baseUrl = '', level = 2) {
         let fileTree = '';
         const items = fs.readdirSync(dirPath);
 
@@ -42,9 +42,11 @@ function activate(context) {
           const stat = fs.statSync(itemPath);
 
           if (stat.isDirectory()) {
-            // 对于文件夹，使用文件夹名称
-            fileTree += `## ${item}\n`;
-            fileTree += generateFileTree(itemPath, path.join(baseUrl, item));
+            // 根据目录层级增加 # 数量
+            const folderHeader = '#'.repeat(level) + ` ${item}\n`;
+            fileTree += folderHeader;
+            // 递归调用子目录，层级+1
+            fileTree += generateFileTree(itemPath, path.join(baseUrl, item), level + 1);
           } else if (item.endsWith('.md')) {
             // 只处理 .md 文件
             let displayName = item;  // 默认文件名
